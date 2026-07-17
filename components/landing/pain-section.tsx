@@ -1,49 +1,28 @@
-import {
-  PhoneOff,
-  MessageSquareX,
-  CalendarX,
-  TrendingDown,
-  AlertTriangle,
-} from "lucide-react"
-import { Archivo_Black } from "next/font/google"
+
+import { Archivo_Black, Poppins } from "next/font/google"
 
 const archivoBlack = Archivo_Black({
   weight: "400",
   subsets: ["latin"],
 })
 
-const pains = [
+const poppins = Poppins({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+})
+
+const reasons = [
   {
-    icon: PhoneOff,
-    title: "LIGAÇÕES",
-    text: "O paciente liga. Sua equipe explica. E ele nunca agenda.",
-    desktopText:
-      "O paciente liga, sua equipe explica o tratamento e responde às dúvidas, mas encerra a conversa sem conduzir para o agendamento.",
-    result: "Conversas sem direcionamento",
+    subtitle: "Atendimento sem direção",
+    text: "O paciente perde o interesse quando recebe respostas demoradas, genéricas ou sem um direcionamento claro para o agendamento.",
   },
   {
-    icon: MessageSquareX,
-    title: "WHATSAPP",
-    text: "Você paga para gerar leads e deixa oportunidades quentes esperando.",
-    desktopText:
-      "Você investe para gerar contatos, mas muitos leads ficam esperando, recebem respostas genéricas ou não são acompanhados.",
-    result: "Leads quentes esfriando",
+    subtitle: "Falta de acompanhamento",
+    text: "Sem scripts, follow-ups e uma rotina organizada, boas oportunidades acabam esquecidas no meio das conversas.",
   },
   {
-    icon: CalendarX,
-    title: "AGENDA",
-    text: "Faltas e horários vazios continuam custando dinheiro todos os dias.",
-    desktopText:
-      "Pacientes não confirmam, faltam à consulta e sua equipe percebe o problema somente quando o horário já está vazio.",
-    result: "Horários vazios na agenda",
-  },
-  {
-    icon: TrendingDown,
-    title: "MARKETING",
-    text: "Mais contatos entrando. Poucos pacientes chegando até a consulta.",
-    desktopText:
-      "As campanhas geram mensagens e ligações, mas poucos contatos avançam até a avaliação e chegam realmente à clínica.",
-    result: "Investimento sem conversão",
+    subtitle: "Gestão sem indicadores",
+    text: "Quando a clínica não acompanha respostas, agendamentos, comparecimentos e conversões, não consegue identificar onde está perdendo pacientes.",
   },
 ]
 
@@ -54,43 +33,83 @@ export function PainSection() {
         relative
         overflow-hidden
         border-t
-        border-[#b39755]/15
-        bg-black
+        border-[#b39755]/25
+        bg-[radial-gradient(ellipse_at_top,#4a3a1c_0%,#2b2112_18%,#15120c_38%,#070706_70%,#020202_100%)]
       "
     >
-      {/* Efeito esquerdo somente no desktop */}
+      {/* Glow dourado superior forte */}
       <div
         aria-hidden="true"
         className="
           pointer-events-none
           absolute
-          -left-44
-          top-12
-          hidden
-          h-[420px]
-          w-[420px]
+          left-1/2
+          top-[-220px]
+          h-[620px]
+          w-[1000px]
+          -translate-x-1/2
           rounded-full
-          bg-[radial-gradient(circle,rgba(197,176,116,0.075),transparent_68%)]
-          blur-2xl
+          bg-[radial-gradient(ellipse,rgba(226,209,155,0.32)_0%,rgba(197,160,75,0.18)_28%,rgba(126,92,31,0.08)_52%,transparent_72%)]
+          blur-3xl
+        "
+      />
+
+      {/* Glow esquerdo forte */}
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          -left-64
+          top-1/2
+          hidden
+          size-[650px]
+          -translate-y-1/2
+          rounded-full
+          bg-[radial-gradient(circle,rgba(180,135,47,0.16),rgba(120,83,25,0.06)_45%,transparent_70%)]
+          blur-3xl
           lg:block
         "
       />
 
-      {/* Efeito direito somente no desktop */}
+      {/* Glow direito forte */}
       <div
         aria-hidden="true"
         className="
           pointer-events-none
           absolute
-          -right-48
-          bottom-0
+          -right-64
+          bottom-[-180px]
           hidden
-          h-[400px]
-          w-[400px]
+          size-[650px]
           rounded-full
-          bg-[radial-gradient(circle,rgba(197,176,116,0.05),transparent_68%)]
+          bg-[radial-gradient(circle,rgba(180,135,47,0.14),rgba(120,83,25,0.05)_45%,transparent_70%)]
           blur-3xl
           lg:block
+        "
+      />
+
+      {/* Degradê central para dar profundidade */}
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          bg-[linear-gradient(180deg,rgba(255,255,255,0.02)_0%,transparent_20%,rgba(0,0,0,0.15)_65%,rgba(0,0,0,0.65)_100%)]
+        "
+      />
+
+      {/* Grade discreta */}
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          opacity-[0.025]
+          [background-image:linear-gradient(rgba(255,255,255,0.8)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.8)_1px,transparent_1px)]
+          [background-size:48px_48px]
         "
       />
 
@@ -98,364 +117,246 @@ export function PainSection() {
         className="
           relative
           mx-auto
-          max-w-6xl
+          max-w-[1180px]
           px-4
-          pb-12
-          pt-0
-          md:pb-16
-          md:pt-0
-          lg:grid
-          lg:max-w-[1180px]
-          lg:grid-cols-[0.8fr_1.2fr]
-          lg:items-start
-          lg:gap-10
+          py-14
+          sm:px-6
+          sm:py-16
           lg:px-8
           lg:py-16
         "
       >
-        {/* ================= MOBILE E TABLET ================= */}
+        {/* ================= CABEÇALHO ================= */}
 
-        <div className="mx-auto max-w-3xl text-center lg:hidden">
-          <span className="text-[0.8rem] font-bold uppercase tracking-[0.25em] text-[#c5b074] sm:text-sm">
-            O problema não é o que você pensa
-          </span>
-
-          <h2 className="mt-4 text-balance font-display text-3xl uppercase leading-[1.25] text-white sm:text-5xl">
-            Você não precisa de{" "}
-            <span className="bg-gradient-to-r from-[#e7d399] via-[#c7a961] to-[#a38140] bg-clip-text text-transparent">
-              mais leads
-            </span>
-            . Precisa{" "}
-            <span className="bg-gradient-to-r from-[#e7d399] via-[#c7a961] to-[#a38140] bg-clip-text text-transparent">
-              parar de perder
-            </span>{" "}
-            os que já chegam.
-          </h2>
-
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Todos os dias, clínicas investem em marketing para gerar novas
-            oportunidades e perdem boa parte delas na recepção, no telefone e
-            no WhatsApp.
-          </p>
-        </div>
-
-        {/* ================= TEXTO DESKTOP ================= */}
-
-        <div className="hidden lg:block">
-          <div
-            className="
-              inline-flex
-              items-center
-              gap-2
-              rounded-full
-              border
-              border-[#b39755]/30
-              bg-[#c5b074]/[0.06]
-              px-3.5
-              py-1.5
-            "
+        <div className="mx-auto max-w-4xl text-center">
+          <span
+            className={`
+              ${poppins.className}
+              text-[0.72rem]
+              font-bold
+              uppercase
+              tracking-[0.24em]
+              text-[#e0c77b]
+              sm:text-sm
+            `}
           >
-            <AlertTriangle
-              aria-hidden="true"
-              strokeWidth={1.8}
-              className="size-3.5 text-[#d7b962]"
-            />
-
-            <span
-              className="
-                text-[0.62rem]
-                font-bold
-                uppercase
-                tracking-[0.18em]
-                text-[#c5b074]
-              "
-            >
-              O problema não é o que você pensa
-            </span>
-          </div>
+            Esses 3 motivos explicam
+          </span>
 
           <h2
             className={`
               ${archivoBlack.className}
-              mt-5
-              text-[2.65rem]
+              mx-auto
+              mt-4
+              max-w-[980px]
+              text-[1.8rem]
               uppercase
-              leading-[1.03]
+              leading-[1.08]
               tracking-[-0.035em]
               text-white
-              xl:text-[2.95rem]
+              sm:text-[2.5rem]
+              lg:text-[2.35rem]
+              xl:text-[2.55rem]
             `}
           >
-            Você não precisa de{" "}
+            Por que algumas clínicas recebem{" "}
             <span
               className="
                 bg-gradient-to-r
-                from-[#f0dda2]
-                via-[#c7a961]
+                from-[#fff0b5]
+                via-[#d7b962]
                 to-[#a38140]
                 bg-clip-text
                 text-transparent
               "
             >
-              mais leads.
+              muitos leads
             </span>
-
-            <span className="mt-1.5 block">
-              Precisa parar de perder os que já chegam.
+            , mas continuam com a{" "}
+            <span
+              className="
+                bg-gradient-to-r
+                from-[#fff0b5]
+                via-[#d7b962]
+                to-[#a38140]
+                bg-clip-text
+                text-transparent
+              "
+            >
+              agenda vazia?
             </span>
           </h2>
 
           <p
-            className="
+            className={`
+              ${poppins.className}
+              mx-auto
               mt-5
-              max-w-[430px]
-              text-[0.92rem]
-              leading-6
-              text-white/60
-            "
+              max-w-3xl
+              text-[0.86rem]
+              leading-[1.7]
+              text-white/70
+              sm:text-base
+            `}
           >
-            Todos os dias, clínicas investem em marketing para gerar
-            oportunidades, mas perdem boa parte delas durante o atendimento,
-            no telefone, no WhatsApp e na organização da agenda.
+            Na maioria das vezes, o problema não está na quantidade de
+            oportunidades, mas na forma como cada contato é conduzido pela
+            recepção.
           </p>
+
+          <div
+            aria-hidden="true"
+            className="
+              mx-auto
+              mt-6
+              h-[2px]
+              w-28
+              bg-gradient-to-r
+              from-transparent
+              via-[#e0c77b]
+              to-transparent
+              shadow-[0_0_18px_rgba(215,185,98,0.6)]
+            "
+          />
         </div>
 
-        {/* ================= CARDS ================= */}
+        {/* ================= MOTIVOS ================= */}
 
         <div
-          className="
+          className={`
+            ${poppins.className}
             mx-auto
-            mt-8
-            flex
-            max-w-[820px]
-            flex-col
-            gap-2.5
-            lg:mt-0
-            lg:grid
+            mt-9
+            grid
+            max-w-[860px]
+            grid-cols-1
+            gap-3
+            lg:mt-11
             lg:max-w-none
-            lg:grid-cols-2
-            lg:gap-3
-          "
+            lg:grid-cols-3
+            lg:gap-5
+          `}
         >
-          {pains.map((pain, index) => {
-            const Icon = pain.icon
-
-            return (
-              <article
-                key={pain.title}
+          {reasons.map((reason) => (
+            <article
+              key={reason.subtitle}
+              className="
+                group
+                relative
+                overflow-hidden
+                rounded-[18px]
+                border
+                border-[#b39755]/45
+                bg-[linear-gradient(145deg,#211b10_0%,#100f0c_48%,#050505_100%)]
+                px-5
+                py-5
+                shadow-[0_20px_55px_rgba(0,0,0,0.4)]
+                transition-all
+                duration-500
+                hover:-translate-y-1
+                hover:border-[#e0c77b]/80
+                hover:shadow-[0_28px_80px_rgba(166,130,75,0.2)]
+                sm:px-6
+                sm:py-6
+                lg:min-h-[250px]
+                lg:rounded-[22px]
+              "
+            >
+              {/* Brilho do card */}
+              <div
+                aria-hidden="true"
                 className="
-                  group
-                  relative
-                  overflow-hidden
-                  rounded-[16px]
-                  border
-                  border-[#b39755]/55
-                  bg-gradient-to-r
-                  from-[#0a0a0a]
-                  via-[#070707]
-                  to-[#030303]
-                  px-3.5
-                  py-3.5
-                  transition-all
-                  duration-300
-                  hover:border-[#c5b074]/90
-                  sm:px-5
-                  sm:py-4
-                  lg:flex
-                  lg:min-h-[230px]
-                  lg:flex-col
-                  lg:rounded-[18px]
-                  lg:border-[#b39755]/40
-                  lg:bg-gradient-to-br
-                  lg:from-[#10100f]
-                  lg:via-[#080808]
-                  lg:to-[#030303]
-                  lg:p-5
-                  lg:hover:-translate-y-0.5
+                  pointer-events-none
+                  absolute
+                  -right-20
+                  -top-20
+                  size-56
+                  rounded-full
+                  bg-[radial-gradient(circle,rgba(226,209,155,0.22),transparent_68%)]
+                  opacity-60
+                  blur-xl
+                  transition-opacity
+                  duration-500
+                  group-hover:opacity-100
                 "
-              >
-                {/* Numeração somente no desktop */}
-                <span
-                  aria-hidden="true"
+              />
+
+              <div className="relative flex h-full flex-col">
+                <div className="flex items-start justify-between gap-4">
+                  <h3
+                    className="
+                      max-w-[220px]
+                      text-[0.82rem]
+                      font-bold
+                      uppercase
+                      leading-[1.35]
+                      tracking-[0.12em]
+                      text-[#e0c77b]
+                      sm:text-[0.92rem]
+                      lg:text-[0.88rem]
+                    "
+                  >
+                    {reason.subtitle}
+                  </h3>
+
+                  <span
+                    aria-hidden="true"
+                    className="
+                      mt-2
+                      h-[2px]
+                      w-12
+                      shrink-0
+                      bg-gradient-to-r
+                      from-[#e0c77b]
+                      to-transparent
+                      shadow-[0_0_10px_rgba(215,185,98,0.35)]
+                      transition-all
+                      duration-500
+                      group-hover:w-16
+                    "
+                  />
+                </div>
+
+                <p
                   className="
-                    absolute
-                    right-4
-                    top-3
-                    hidden
-                    text-5xl
-                    font-black
-                    leading-none
-                    text-white/[0.025]
-                    lg:block
+                    mt-5
+                    text-[0.84rem]
+                    leading-[1.7]
+                    text-white/80
+                    transition-colors
+                    duration-300
+                    group-hover:text-white
+                    sm:text-[0.95rem]
+                    lg:mt-6
+                    lg:text-[0.9rem]
                   "
                 >
-                  0{index + 1}
-                </span>
+                  {reason.text}
+                </p>
 
                 <div
                   aria-hidden="true"
                   className="
-                    pointer-events-none
-                    absolute
-                    left-0
-                    top-1/2
-                    h-24
-                    w-32
-                    -translate-y-1/2
-                    bg-[radial-gradient(circle,rgba(197,176,116,0.09),transparent_68%)]
-                    lg:-left-10
-                    lg:-top-10
-                    lg:h-36
-                    lg:w-36
-                    lg:translate-y-0
-                  "
-                />
-
-                <div
-                  className="
-                    relative
-                    flex
-                    min-h-[82px]
-                    items-center
-                    lg:min-h-0
-                    lg:items-start
-                    lg:gap-4
+                    mt-auto
+                    hidden
+                    pt-6
+                    lg:block
                   "
                 >
                   <div
                     className="
-                      flex
-                      w-[74px]
-                      shrink-0
-                      items-center
-                      justify-center
-                      border-r
-                      border-[#b39755]/70
-                      pr-3.5
-                      sm:w-[118px]
-                      sm:pr-5
-                      lg:w-auto
-                      lg:border-r-0
-                      lg:pr-0
-                    "
-                  >
-                    <div
-                      className="
-                        flex
-                        size-[52px]
-                        items-center
-                        justify-center
-                        rounded-full
-                        border
-                        border-[#b39755]/25
-                        bg-[radial-gradient(circle,rgba(197,176,116,0.13),rgba(197,176,116,0.02)_60%,transparent_75%)]
-                        shadow-[0_0_22px_rgba(197,176,116,0.12)]
-                        transition-transform
-                        duration-300
-                        group-hover:scale-105
-                        sm:size-16
-                        lg:size-[54px]
-                      "
-                    >
-                      <Icon
-                        aria-hidden="true"
-                        strokeWidth={1.8}
-                        className="
-                          size-[26px]
-                          text-[#d7b962]
-                          drop-shadow-[0_0_8px_rgba(215,185,98,0.25)]
-                          sm:size-[30px]
-                          lg:size-[25px]
-                        "
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex-1 pl-4 sm:pl-6 lg:pl-0">
-                    <h3
-                      className="
-                        text-[0.72rem]
-                        font-bold
-                        uppercase
-                        tracking-[0.2em]
-                        text-[#d5b45c]
-                        sm:text-base
-                        lg:text-[0.82rem]
-                      "
-                    >
-                      {pain.title}
-                    </h3>
-
-                    {/* Texto original no mobile */}
-                    <p
-                      className="
-                        mt-1
-                        max-w-2xl
-                        text-[0.8rem]
-                        font-normal
-                        leading-relaxed
-                        text-white/90
-                        sm:text-[0.95rem]
-                        lg:hidden
-                      "
-                    >
-                      {pain.text}
-                    </p>
-
-                    {/* Texto maior somente no desktop */}
-                    <p
-                      className="
-                        mt-2
-                        hidden
-                        text-[0.82rem]
-                        leading-[1.6]
-                        text-white/80
-                        lg:block
-                      "
-                    >
-                      {pain.desktopText}
-                    </p>
-                  </div>
-                </div>
-
-                <div
-                  className="
-                    relative
-                    mt-auto
-                    hidden
-                    items-center
-                    gap-2
-                    border-t
-                    border-[#b39755]/15
-                    pt-3.5
-                    lg:flex
-                  "
-                >
-                  <span
-                    className="
-                      size-1.5
-                      shrink-0
-                      rounded-full
-                      bg-[#d7b962]
-                      shadow-[0_0_8px_rgba(215,185,98,0.5)]
+                      h-px
+                      w-full
+                      bg-gradient-to-r
+                      from-[#d7b962]/55
+                      via-[#b39755]/20
+                      to-transparent
                     "
                   />
-
-                  <span
-                    className="
-                      text-[0.61rem]
-                      font-semibold
-                      uppercase
-                      tracking-[0.11em]
-                      text-white/50
-                    "
-                  >
-                    {pain.result}
-                  </span>
                 </div>
-              </article>
-            )
-          })}
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

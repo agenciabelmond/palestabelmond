@@ -1,3 +1,4 @@
+
 import { Check } from "lucide-react"
 import { Archivo_Black, Poppins } from "next/font/google"
 
@@ -67,69 +68,103 @@ export function BenefitsSection() {
         overflow-hidden
         border-y
         border-[#b39755]/15
-        bg-black
+        bg-[radial-gradient(ellipse_at_bottom_left,#604719_0%,#30230f_16%,#120e08_38%,#050505_68%,#020202_100%)]
       "
     >
-      {/* Brilho superior */}
+      {/* ================= GLOW PRINCIPAL FORTE ================= */}
+
       <div
         aria-hidden="true"
         className="
           pointer-events-none
           absolute
-          left-1/2
-          top-0
-          h-[360px]
-          w-[650px]
-          -translate-x-1/2
-          -translate-y-1/2
+          -bottom-[260px]
+          -left-[180px]
+          z-0
+          h-[850px]
+          w-[850px]
           rounded-full
-          bg-[radial-gradient(circle,rgba(226,209,155,0.13),transparent_68%)]
+          bg-[radial-gradient(circle,rgba(226,209,155,0.62)_0%,rgba(197,160,75,0.42)_20%,rgba(126,92,31,0.24)_42%,rgba(80,55,18,0.1)_58%,transparent_75%)]
           blur-3xl
         "
       />
 
-      {/* Brilho esquerdo */}
+      {/* ================= GLOW SUPERIOR ESQUERDO ================= */}
+
       <div
         aria-hidden="true"
         className="
           pointer-events-none
           absolute
-          -left-48
-          top-1/2
-          hidden
-          size-[430px]
-          -translate-y-1/2
+          -left-[220px]
+          -top-[250px]
+          z-0
+          h-[600px]
+          w-[600px]
           rounded-full
-          bg-[radial-gradient(circle,rgba(197,176,116,0.08),transparent_68%)]
+          bg-[radial-gradient(circle,rgba(197,160,75,0.22),rgba(126,92,31,0.1)_42%,transparent_72%)]
           blur-3xl
-          lg:block
         "
       />
 
-      {/* Brilho direito */}
+      {/* ================= GLOW DIREITO ================= */}
+
       <div
         aria-hidden="true"
         className="
           pointer-events-none
           absolute
-          -right-48
-          bottom-0
-          hidden
-          size-[430px]
+          -right-[180px]
+          top-[38%]
+          z-0
+          h-[520px]
+          w-[520px]
           rounded-full
-          bg-[radial-gradient(circle,rgba(197,176,116,0.06),transparent_68%)]
+          bg-[radial-gradient(circle,rgba(197,176,116,0.16),rgba(126,92,31,0.05)_45%,transparent_72%)]
           blur-3xl
-          lg:block
         "
       />
 
-      {/* Grade discreta */}
+      {/* ================= DEGRADÊ DE PROFUNDIDADE ================= */}
+
       <div
         aria-hidden="true"
         className="
           pointer-events-none
           absolute
           inset-0
+          z-0
+          bg-[linear-gradient(120deg,rgba(0,0,0,0.02)_0%,rgba(0,0,0,0.2)_42%,rgba(0,0,0,0.72)_100%)]
+        "
+      />
+
+      {/* ================= DEGRADÊ INFERIOR ================= */}
+
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          inset-x-0
+          bottom-0
+          z-0
+          h-[28%]
+          bg-gradient-to-t
+          from-[#020202]
+          via-[#050505]/45
+          to-transparent
+        "
+      />
+
+      {/* ================= GRADE ================= */}
+
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          z-0
           opacity-[0.018]
           [background-image:linear-gradient(rgba(255,255,255,0.8)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.8)_1px,transparent_1px)]
           [background-size:48px_48px]
@@ -139,14 +174,15 @@ export function BenefitsSection() {
       <div
         className="
           relative
+          z-10
           mx-auto
           max-w-[1180px]
           px-4
-          py-14
+          py-10
           sm:px-6
-          sm:py-16
+          sm:py-12
           lg:px-8
-          lg:py-14
+          lg:py-10
         "
       >
         {/* ================= CABEÇALHO ================= */}
@@ -168,14 +204,14 @@ export function BenefitsSection() {
           <h2
             className={`
               ${archivoBlack.className}
-              mt-4
+              mt-3
               uppercase
-              lg:mt-3
               tracking-[-0.035em]
               text-white
+              lg:mt-2
             `}
           >
-            {/* Mobile e tablet — não alterado */}
+            {/* MOBILE */}
             <span
               className="
                 block
@@ -200,7 +236,7 @@ export function BenefitsSection() {
               </span>
             </span>
 
-            {/* Desktop — exatamente três linhas */}
+            {/* DESKTOP */}
             <span
               className="
                 hidden
@@ -240,13 +276,13 @@ export function BenefitsSection() {
             className={`
               ${poppins.className}
               mx-auto
-              mt-4
+              mt-3
               max-w-2xl
               text-[0.83rem]
               leading-relaxed
               text-white/60
               sm:text-[0.95rem]
-              lg:mt-3
+              lg:mt-2
               lg:text-[0.9rem]
             `}
           >
@@ -258,29 +294,29 @@ export function BenefitsSection() {
             aria-hidden="true"
             className="
               mx-auto
-              mt-6
+              mt-5
               h-px
-              lg:mt-4
               w-24
               bg-gradient-to-r
               from-transparent
               via-[#d7b962]
               to-transparent
+              lg:mt-3
             "
           />
         </div>
 
-        {/* ================= CARDS MOBILE — NÃO ALTERADOS ================= */}
+        {/* ================= CARDS MOBILE ================= */}
 
         <div
           className={`
             ${poppins.className}
             mx-auto
-            mt-9
+            mt-7
             flex
             max-w-[760px]
             flex-col
-            gap-2.5
+            gap-2
             lg:hidden
           `}
         >
@@ -299,12 +335,12 @@ export function BenefitsSection() {
                 via-[#090909]
                 to-[#040404]
                 px-3.5
-                py-3.5
+                py-3
                 transition-all
                 duration-300
                 hover:border-[#c5b074]/85
                 sm:px-5
-                sm:py-4
+                sm:py-3.5
               "
             >
               <div
@@ -321,7 +357,7 @@ export function BenefitsSection() {
                 "
               />
 
-              <div className="relative flex min-h-[82px] items-center">
+              <div className="relative flex min-h-[76px] items-center">
                 <div
                   className="
                     flex
@@ -339,7 +375,7 @@ export function BenefitsSection() {
                   <div
                     className="
                       flex
-                      size-[46px]
+                      size-[44px]
                       items-center
                       justify-center
                       rounded-full
@@ -350,7 +386,7 @@ export function BenefitsSection() {
                       transition-transform
                       duration-300
                       group-hover:scale-105
-                      sm:size-[52px]
+                      sm:size-[50px]
                     "
                   >
                     <Check
@@ -398,15 +434,15 @@ export function BenefitsSection() {
           ))}
         </div>
 
-        {/* ================= CARDS DESKTOP ATUALIZADOS ================= */}
+        {/* ================= CARDS DESKTOP ================= */}
 
         <div
           className={`
             ${poppins.className}
-            mt-9
+            mt-7
             hidden
             grid-cols-3
-            gap-4
+            gap-3.5
             lg:grid
           `}
         >
@@ -417,7 +453,7 @@ export function BenefitsSection() {
                 group
                 relative
                 flex
-                min-h-[205px]
+                min-h-[185px]
                 flex-col
                 overflow-hidden
                 rounded-[22px]
@@ -433,7 +469,6 @@ export function BenefitsSection() {
                 hover:shadow-[0_30px_80px_rgba(166,130,75,0.16)]
               "
             >
-              {/* Borda iluminada superior */}
               <div
                 aria-hidden="true"
                 className="
@@ -456,7 +491,6 @@ export function BenefitsSection() {
                 "
               />
 
-              {/* Brilho que acompanha o hover */}
               <div
                 aria-hidden="true"
                 className="
@@ -477,7 +511,6 @@ export function BenefitsSection() {
                 "
               />
 
-              {/* Reflexo inferior */}
               <div
                 aria-hidden="true"
                 className="
@@ -496,7 +529,6 @@ export function BenefitsSection() {
                 "
               />
 
-              {/* Conteúdo interno */}
               <div
                 className="
                   relative
@@ -510,12 +542,11 @@ export function BenefitsSection() {
                   p-5
                 "
               >
-                {/* Ícone */}
                 <div
                   className="
                     relative
                     flex
-                    size-[46px]
+                    size-[44px]
                     items-center
                     justify-center
                     rounded-[16px]
@@ -536,7 +567,7 @@ export function BenefitsSection() {
                     aria-hidden="true"
                     strokeWidth={2.7}
                     className="
-                      size-[22px]
+                      size-[21px]
                       transition-transform
                       duration-500
                       group-hover:scale-105
@@ -544,11 +575,10 @@ export function BenefitsSection() {
                   />
                 </div>
 
-                {/* Título */}
                 <h3
                   className="
                     relative
-                    mt-4
+                    mt-3
                     text-[0.9rem]
                     font-bold
                     uppercase
@@ -563,14 +593,13 @@ export function BenefitsSection() {
                   {benefit.title}
                 </h3>
 
-                {/* Texto */}
                 <p
                   className="
                     relative
-                    mt-2.5
+                    mt-2
                     text-[0.79rem]
                     font-normal
-                    leading-[1.55]
+                    leading-[1.5]
                     text-white/70
                     transition-colors
                     duration-300
@@ -581,7 +610,6 @@ export function BenefitsSection() {
                   {benefit.desktopText}
                 </p>
 
-                {/* Rodapé */}
                 <div
                   className="
                     relative
@@ -589,7 +617,7 @@ export function BenefitsSection() {
                     flex
                     items-center
                     gap-3
-                    pt-4
+                    pt-3
                   "
                 >
                   <span
@@ -630,7 +658,7 @@ export function BenefitsSection() {
         <div
           className="
             relative
-            mt-10
+            mt-7
             overflow-hidden
             rounded-[18px]
             border
@@ -640,18 +668,18 @@ export function BenefitsSection() {
             via-[#0d0c09]
             to-[#171109]
             px-5
-            py-6
+            py-5
             text-center
             shadow-[0_20px_70px_rgba(166,130,75,0.09)]
             sm:px-8
-            sm:py-7
-            lg:mt-9
+            sm:py-6
+            lg:mt-7
             lg:flex
             lg:items-center
             lg:justify-between
             lg:gap-6
             lg:px-6
-            lg:py-5
+            lg:py-4
             lg:text-left
           "
         >
@@ -720,7 +748,7 @@ export function BenefitsSection() {
           <div
             className="
               relative
-              mt-5
+              mt-4
               flex
               shrink-0
               justify-center
@@ -736,3 +764,5 @@ export function BenefitsSection() {
     </section>
   )
 }
+
+

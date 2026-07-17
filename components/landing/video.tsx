@@ -38,12 +38,24 @@ export function VideoSection() {
           rounded-full
           bg-[radial-gradient(circle,rgba(197,176,116,0.08),transparent_68%)]
           blur-2xl
+          lg:h-[340px]
+          lg:w-[340px]
         "
       />
 
-      <div className="relative mx-auto max-w-6xl px-4 py-12 sm:py-16">
+      <div
+        className="
+          relative
+          mx-auto
+          max-w-6xl
+          px-4
+          py-12
+          sm:py-16
+          lg:py-10
+        "
+      >
         {/* Cabeçalho */}
-        <div className="mx-auto max-w-4xl text-center lg:max-w-6xl">
+        <div className="mx-auto max-w-4xl text-center lg:max-w-5xl">
           <span
             className="
               text-[0.75rem]
@@ -68,8 +80,9 @@ export function VideoSection() {
               tracking-[-0.03em]
               text-white
               sm:text-[2rem]
-              lg:text-[2.35rem]
-              lg:leading-[1.08]
+              lg:mt-3
+              lg:text-[2.1rem]
+              lg:leading-[1.06]
               lg:tracking-[-0.035em]
             `}
           >
@@ -128,6 +141,8 @@ export function VideoSection() {
               leading-relaxed
               text-white/60
               sm:text-base
+              lg:mt-3
+              lg:text-[0.92rem]
             "
           >
             Conheça a experiência de quem confiou no nosso trabalho e
@@ -144,7 +159,8 @@ export function VideoSection() {
             max-w-[250px]
             sm:mt-10
             sm:max-w-[280px]
-            lg:max-w-4xl
+            lg:mt-6
+            lg:max-w-[680px]
           "
         >
           <div
@@ -157,9 +173,9 @@ export function VideoSection() {
               bg-[#070707]
               p-1
               shadow-[0_0_32px_rgba(197,176,116,0.12)]
-              lg:rounded-[22px]
-              lg:p-1.5
-              lg:shadow-[0_0_45px_rgba(197,176,116,0.15)]
+              lg:rounded-[20px]
+              lg:p-1
+              lg:shadow-[0_0_36px_rgba(197,176,116,0.13)]
             "
           >
             {/* Linha dourada superior */}
@@ -240,12 +256,10 @@ export function VideoSection() {
               </div>
             </div>
           </div>
-
-         
         </div>
 
         {/* Botão */}
-        <div className="mt-6 flex justify-center">
+        <div className="mt-6 flex justify-center lg:mt-4">
           <button
             type="button"
             onClick={handleCtaClick}
@@ -285,6 +299,9 @@ export function VideoSection() {
               sm:max-w-none
               sm:px-10
               sm:text-base
+              lg:px-8
+              lg:py-3.5
+              lg:text-sm
             "
             style={{ fontFamily: "Arial, sans-serif" }}
           >
@@ -305,9 +322,7 @@ export function VideoSection() {
               "
             />
 
-            <span className="relative z-10 text-balance">
-              GARANTIR VAGA
-            </span>
+            <span className="relative z-10 text-balance">GARANTIR VAGA</span>
           </button>
         </div>
       </div>
