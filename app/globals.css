@@ -129,3 +129,18 @@
     @apply bg-background text-foreground;
   }
 }
+@keyframes softNeon {
+0%,
+100% {
+box-shadow:
+0 0 5px rgba(242, 222, 162, 0.45),
+0 0 12px rgba(242, 222, 162, 0.25);
+}
+
+50% {
+box-shadow:
+0 0 7px rgba(242, 222, 162, 0.7),
+0 0 16px rgba(242, 222, 162, 0.4),
+0 0 24px rgba(242, 222, 162, 0.2);
+}
+}

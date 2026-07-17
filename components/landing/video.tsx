@@ -1,5 +1,12 @@
 "use client"
 
+import { Archivo_Black } from "next/font/google"
+
+const archivoBlack = Archivo_Black({
+  weight: "400",
+  subsets: ["latin"],
+})
+
 export function VideoSection() {
   function handleCtaClick() {
     window.dispatchEvent(new Event("open-registration-modal"))
@@ -36,7 +43,7 @@ export function VideoSection() {
 
       <div className="relative mx-auto max-w-6xl px-4 py-12 sm:py-16">
         {/* Cabeçalho */}
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-4xl text-center lg:max-w-6xl">
           <span
             className="
               text-[0.75rem]
@@ -51,32 +58,65 @@ export function VideoSection() {
           </span>
 
           <h2
-            className="
+            className={`
+              ${archivoBlack.className}
               mt-4
               text-balance
-              font-display
-              text-3xl
+              text-[1.65rem]
               uppercase
-              leading-[1.2]
+              leading-[1.1]
+              tracking-[-0.03em]
               text-white
-              sm:text-4xl
-              lg:text-5xl
-            "
+              sm:text-[2rem]
+              lg:text-[2.35rem]
+              lg:leading-[1.08]
+              lg:tracking-[-0.035em]
+            `}
           >
-            Confira o depoimento de quem fez a{" "}
-            <span
-              className="
-                bg-gradient-to-r
-                from-[#e7d399]
-                via-[#c7a961]
-                to-[#a38140]
-                bg-clip-text
-                text-transparent
-              "
-            >
-              escolha certa
-            </span>{" "}
-            e conquistou resultados reais
+            {/* Mobile e tablet */}
+            <span className="lg:hidden">
+              Confira o depoimento de quem fez a{" "}
+              <span
+                className="
+                  bg-gradient-to-r
+                  from-[#e7d399]
+                  via-[#c7a961]
+                  to-[#a38140]
+                  bg-clip-text
+                  text-transparent
+                "
+              >
+                escolha certa
+              </span>{" "}
+              e conquistou resultados reais
+            </span>
+
+            {/* Desktop — exatamente três linhas */}
+            <span className="hidden lg:block">
+              <span className="block whitespace-nowrap">
+                Confira o depoimento de quem fez a
+              </span>
+
+              <span className="mt-1 block whitespace-nowrap">
+                <span
+                  className="
+                    bg-gradient-to-r
+                    from-[#e7d399]
+                    via-[#c7a961]
+                    to-[#a38140]
+                    bg-clip-text
+                    text-transparent
+                  "
+                >
+                  escolha certa
+                </span>{" "}
+                e conquistou
+              </span>
+
+              <span className="mt-1 block whitespace-nowrap">
+                resultados reais
+              </span>
+            </span>
           </h2>
 
           <p
@@ -95,8 +135,18 @@ export function VideoSection() {
           </p>
         </div>
 
-        {/* Vídeo vertical */}
-        <div className="mx-auto mt-9 w-full max-w-[250px] sm:mt-10 sm:max-w-[280px]">
+        {/* Vídeo */}
+        <div
+          className="
+            mx-auto
+            mt-9
+            w-full
+            max-w-[250px]
+            sm:mt-10
+            sm:max-w-[280px]
+            lg:max-w-4xl
+          "
+        >
           <div
             className="
               relative
@@ -107,6 +157,9 @@ export function VideoSection() {
               bg-[#070707]
               p-1
               shadow-[0_0_32px_rgba(197,176,116,0.12)]
+              lg:rounded-[22px]
+              lg:p-1.5
+              lg:shadow-[0_0_45px_rgba(197,176,116,0.15)]
             "
           >
             {/* Linha dourada superior */}
@@ -117,7 +170,7 @@ export function VideoSection() {
                 absolute
                 left-1/2
                 top-0
-                z-10
+                z-20
                 h-px
                 w-2/3
                 -translate-x-1/2
@@ -128,6 +181,7 @@ export function VideoSection() {
               "
             />
 
+            {/* Mobile e tablet — vertical */}
             <div
               className="
                 relative
@@ -135,6 +189,7 @@ export function VideoSection() {
                 overflow-hidden
                 rounded-[14px]
                 bg-black
+                lg:hidden
               "
             >
               <iframe
@@ -147,21 +202,46 @@ export function VideoSection() {
                 allowFullScreen
               />
             </div>
+
+            {/* Computador — horizontal com laterais pretas */}
+            <div
+              className="
+                relative
+                hidden
+                aspect-video
+                overflow-hidden
+                rounded-[16px]
+                bg-black
+                lg:block
+              "
+            >
+              <div
+                className="
+                  absolute
+                  bottom-0
+                  left-1/2
+                  top-0
+                  aspect-[9/16]
+                  h-full
+                  -translate-x-1/2
+                  overflow-hidden
+                  bg-black
+                "
+              >
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/FLixTAObmCM?rel=0&modestbranding=1"
+                  title="Depoimento de cliente"
+                  className="absolute inset-0 h-full w-full"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            </div>
           </div>
 
-          <p
-            className="
-              mt-3
-              text-center
-              text-[0.65rem]
-              font-semibold
-              uppercase
-              tracking-[0.2em]
-              text-[#c5b074]/80
-            "
-          >
-            Aperte o play e confira
-          </p>
+         
         </div>
 
         {/* Botão */}
@@ -208,7 +288,7 @@ export function VideoSection() {
             "
             style={{ fontFamily: "Arial, sans-serif" }}
           >
-            {/* Efeito de brilho passando pelo botão */}
+            {/* Brilho passando pelo botão */}
             <span
               aria-hidden="true"
               className="
