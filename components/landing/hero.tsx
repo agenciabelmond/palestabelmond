@@ -1,6 +1,7 @@
+"use client"
+
 import { CalendarDays, ChevronsDown, MapPin } from "lucide-react"
 import { Bowlby_One_SC, Poppins } from "next/font/google"
-import { CtaButton } from "./cta-button"
 
 const bowlbyOneSC = Bowlby_One_SC({
   weight: "400",
@@ -15,6 +16,19 @@ const poppins = Poppins({
 type LogoProps = {
   className?: string
   imageClassName?: string
+}
+
+/*
+ * Abre o mesmo modal de cadastro existente no componente UrgencyBar.
+ */
+function openRegistrationModal() {
+  window.dispatchEvent(
+    new CustomEvent("open-registration-modal", {
+      detail: {
+        origem: "Seção principal",
+      },
+    }),
+  )
 }
 
 function Logo({ className, imageClassName }: LogoProps) {
@@ -37,46 +51,74 @@ function Logo({ className, imageClassName }: LogoProps) {
  */
 function DesktopEventData() {
   return (
-    <div className="flex flex-col items-end gap-3.5">
-      <div className="flex items-start justify-end gap-2.5">
-        <CalendarDays
-          className="mt-0.5 size-[18px] shrink-0 text-[#c5b074]"
-          aria-hidden="true"
-        />
+    <div
+      className="
+        flex
+        items-center
+        whitespace-nowrap
+        rounded-xl
+        border
+        border-[#c5b074]/75
+        bg-black/90
+        px-3.5
+        py-2.5
+        shadow-xl
+        shadow-black/40
+        backdrop-blur-md
+        lg:px-4
+        lg:py-3
+      "
+    >
+      <CalendarDays
+        className="mr-2 size-4 shrink-0 text-[#c5b074] lg:size-[17px]"
+        aria-hidden="true"
+      />
 
-        <span className="text-right">
-          <span className="block text-sm font-normal leading-tight text-foreground lg:text-[0.95rem]">
-            23 de setembro de 2026
-          </span>
+      <span className="text-[0.68rem] font-medium text-white lg:text-[0.76rem] xl:text-[0.82rem]">
+        23 de setembro de 2026
+      </span>
 
-          <span className="mt-1 block text-xs font-normal text-muted-foreground lg:text-[0.8rem]">
-            quarta-feira
-          </span>
-        </span>
-      </div>
+      <span
+        className="mx-2.5 h-4 w-px shrink-0 bg-[#c5b074]/45 lg:mx-3"
+        aria-hidden="true"
+      />
 
-      <div className="flex items-start justify-end gap-2.5">
-        <MapPin
-          className="mt-0.5 size-[18px] shrink-0 text-[#c5b074]"
-          aria-hidden="true"
-        />
+      <span className="text-[0.68rem] font-normal text-white/80 lg:text-[0.76rem] xl:text-[0.82rem]">
+        quarta-feira
+      </span>
 
-        <span className="text-right">
-          <span className="block text-sm font-normal leading-tight text-foreground lg:text-[0.95rem]">
-            Porto de Gale
-          </span>
+      <span
+        className="mx-2.5 h-4 w-px shrink-0 bg-[#c5b074]/45 lg:mx-3"
+        aria-hidden="true"
+      />
 
-          <span className="mt-1 block text-xs font-normal text-muted-foreground lg:text-[0.8rem]">
-            Rio Grande, RS
-          </span>
-        </span>
-      </div>
+      <span className="text-[0.68rem] font-semibold text-[#e7d399] lg:text-[0.76rem] xl:text-[0.82rem]">
+        às 19h
+      </span>
+
+      <span
+        className="mx-2.5 h-4 w-px shrink-0 bg-[#c5b074]/45 lg:mx-3"
+        aria-hidden="true"
+      />
+
+      <MapPin
+        className="mr-2 size-4 shrink-0 text-[#c5b074] lg:size-[17px]"
+        aria-hidden="true"
+      />
+
+      <span className="text-[0.68rem] font-medium text-white lg:text-[0.76rem] xl:text-[0.82rem]">
+        Porto de Gale
+      </span>
+
+      <span className="ml-2 text-[0.66rem] font-normal text-white/60 lg:text-[0.74rem] xl:text-[0.8rem]">
+        Rio Grande, RS
+      </span>
     </div>
   )
 }
 
 /*
- * Mobile mantido exatamente igual.
+ * Informações exibidas somente no mobile.
  */
 function MobileEventData() {
   return (
@@ -92,8 +134,12 @@ function MobileEventData() {
             23 de setembro de 2026
           </span>
 
-          <span className="mt-1 block text-[0.65rem] text-muted-foreground sm:text-xs">
+          <span className="mt-1 block whitespace-nowrap text-[0.65rem] text-muted-foreground sm:text-xs">
             quarta-feira
+
+            <span className="ml-1.5 font-semibold text-[#e7d399]">
+              • às 19h
+            </span>
           </span>
         </span>
       </div>
@@ -136,12 +182,46 @@ function ConversionCard({ className }: { className?: string }) {
         agendamentos e mais faturamento para sua clínica.
       </p>
 
-      <a
-        href="#inscricao"
-        className={`${poppins.className} mt-5 flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-gradient-to-r from-[#e2d19b] via-[#e0cb95] to-[#a6824b] px-4 py-3.5 text-center text-[0.78rem] font-bold uppercase tracking-normal text-[#1b160d] transition-all duration-300 hover:-translate-y-0.5 lg:text-[0.82rem]`}
+      <button
+        type="button"
+        onClick={openRegistrationModal}
+        className={`
+          ${poppins.className}
+          mt-5
+          flex
+          w-full
+          items-center
+          justify-center
+          whitespace-nowrap
+          rounded-lg
+          bg-gradient-to-r
+          from-[#e2d19b]
+          via-[#e0cb95]
+          to-[#a6824b]
+          px-4
+          py-3.5
+          text-center
+          text-[0.78rem]
+          font-bold
+          uppercase
+          tracking-normal
+          text-[#1b160d]
+          shadow-lg
+          shadow-[#a6824b]/25
+          transition-all
+          duration-300
+          hover:-translate-y-0.5
+          hover:brightness-105
+          hover:shadow-xl
+          hover:shadow-[#a6824b]/35
+          focus-visible:outline-none
+          focus-visible:ring-4
+          focus-visible:ring-[#e2d19b]/30
+          lg:text-[0.82rem]
+        `}
       >
         GARANTIR A VAGA DO 1º LOTE
-      </a>
+      </button>
 
       <p className="mt-3 flex items-center justify-center gap-1.5 text-xs font-medium text-muted-foreground">
         <MapPin className="size-3.5 text-[#c5b074]" />
@@ -166,7 +246,8 @@ export function Hero() {
           md:block
         "
       >
-        {/* Glow dourado deslocado para o canto superior direito */}
+        {/* Glow dourado superior direito */}
+
         <div
           aria-hidden="true"
           className="
@@ -183,7 +264,8 @@ export function Hero() {
           "
         />
 
-        {/* Glow dourado no canto inferior direito */}
+        {/* Glow dourado inferior direito */}
+
         <div
           aria-hidden="true"
           className="
@@ -200,6 +282,7 @@ export function Hero() {
         />
 
         {/* Glow dourado esquerdo */}
+
         <div
           aria-hidden="true"
           className="
@@ -216,6 +299,7 @@ export function Hero() {
         />
 
         {/* Degradê de profundidade */}
+
         <div
           aria-hidden="true"
           className="
@@ -228,6 +312,7 @@ export function Hero() {
         />
 
         {/* Degradê inferior */}
+
         <div
           aria-hidden="true"
           className="
@@ -245,6 +330,7 @@ export function Hero() {
         />
 
         {/* Grade discreta */}
+
         <div
           aria-hidden="true"
           className="
@@ -260,20 +346,34 @@ export function Hero() {
 
         <div className="relative z-10 mx-auto flex min-h-[calc(100svh-2.75rem)] max-w-6xl flex-col px-6">
           {/* HEADER */}
-          <div className="flex w-full items-start justify-between pt-7 lg:pt-8">
+
+          <div className="relative flex w-full items-start pt-7 lg:pt-8">
             <Logo imageClassName="h-[58px] w-[255px] object-contain" />
 
-            <div className="pr-7 lg:pr-10">
+            <div className="absolute right-[-3%] top-7 lg:top-8">
               <DesktopEventData />
             </div>
           </div>
 
           {/* HERO */}
+
           <div className="relative flex flex-1 items-center">
             {/* CONTEÚDO ESQUERDO */}
+
             <div className="relative z-20 w-[48%] translate-y-3 pb-16">
               <h1
-                className={`${bowlbyOneSC.className} translate-y-8 text-balance text-[2.55rem] uppercase leading-[1.08] tracking-[-0.02em] text-white lg:text-[3rem] xl:text-[3.3rem]`}
+                className={`
+                  ${bowlbyOneSC.className}
+                  translate-y-8
+                  text-balance
+                  text-[2.55rem]
+                  uppercase
+                  leading-[1.08]
+                  tracking-[-0.02em]
+                  text-white
+                  lg:text-[3rem]
+                  xl:text-[3.3rem]
+                `}
               >
                 A NOVA FORMA DE{" "}
                 <span className="bg-gradient-to-r from-[#e7d399] via-[#c7a961] to-[#a38140] bg-clip-text text-transparent">
@@ -289,6 +389,7 @@ export function Hero() {
             </div>
 
             {/* FOTO HORIZONTAL À DIREITA */}
+
             <div className="pointer-events-none absolute right-[-3%] top-[46%] z-10 w-[54%] -translate-y-1/2">
               <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem]">
                 <img
@@ -297,7 +398,8 @@ export function Hero() {
                   className="h-full w-full object-cover object-[50%_0%]"
                 />
 
-                {/* Fade lateral para integrar com o fundo */}
+                {/* Fade lateral para integrar a foto ao fundo */}
+
                 <div
                   aria-hidden="true"
                   className="absolute inset-0"
@@ -311,6 +413,7 @@ export function Hero() {
           </div>
 
           {/* SETA */}
+
           <div className="flex items-center justify-center pb-6">
             <ChevronsDown
               className="size-9 animate-bounce text-[#c5b074]"
@@ -350,7 +453,18 @@ export function Hero() {
           </div>
 
           <h1
-            className={`${bowlbyOneSC.className} mx-auto mt-8 max-w-[370px] text-balance text-center text-[1.7rem] uppercase leading-[1.12] tracking-[-0.02em]`}
+            className={`
+              ${bowlbyOneSC.className}
+              mx-auto
+              mt-8
+              max-w-[370px]
+              text-balance
+              text-center
+              text-[1.7rem]
+              uppercase
+              leading-[1.12]
+              tracking-[-0.02em]
+            `}
           >
             A NOVA FORMA DE{" "}
             <span className="bg-gradient-to-r from-[#e7d399] via-[#c7a961] to-[#a38140] bg-clip-text text-transparent">
@@ -367,9 +481,62 @@ export function Hero() {
             agendamentos e mais faturamento para sua clínica.
           </p>
 
-          <CtaButton className="mt-7 w-full !shadow-none tracking-wide">
-            Garantir minha vaga
-          </CtaButton>
+          {/* BOTÃO MOBILE ABRINDO O MESMO CADASTRO */}
+
+          <button
+            type="button"
+            onClick={openRegistrationModal}
+            className={`
+              ${poppins.className}
+              group
+              relative
+              mt-7
+              inline-flex
+              w-full
+              items-center
+              justify-center
+              overflow-hidden
+              rounded-lg
+              bg-gradient-to-r
+              from-[#e2d19b]
+              via-[#e0cb95]
+              to-[#a6824b]
+              px-6
+              py-4
+              text-center
+              text-sm
+              font-extrabold
+              uppercase
+              tracking-wide
+              text-[#1b160d]
+              transition-all
+              duration-300
+              hover:-translate-y-0.5
+              hover:brightness-105
+              focus-visible:outline-none
+              focus-visible:ring-4
+              focus-visible:ring-[#e2d19b]/50
+            `}
+          >
+            <span className="relative z-10">Garantir minha vaga</span>
+
+            <span
+              aria-hidden="true"
+              className="
+                pointer-events-none
+                absolute
+                inset-0
+                -translate-x-full
+                bg-gradient-to-r
+                from-transparent
+                via-white/30
+                to-transparent
+                transition-transform
+                duration-700
+                group-hover:translate-x-full
+              "
+            />
+          </button>
 
           <p className="mt-4 flex items-center justify-center gap-1.5 text-sm font-medium text-muted-foreground">
             <MapPin className="size-4 text-[#c5b074]" />

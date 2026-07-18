@@ -1,8 +1,8 @@
+"use client"
 
 import { Check } from "lucide-react"
 import { Archivo_Black, Poppins } from "next/font/google"
 
-import { CtaButton } from "./cta-button"
 
 const archivoBlack = Archivo_Black({
   weight: "400",
@@ -60,6 +60,16 @@ const benefits = [
 ]
 
 export function BenefitsSection() {
+  function handleCtaClick() {
+    window.dispatchEvent(
+      new CustomEvent("open-registration-modal", {
+        detail: {
+          origem: "Conteúdo",
+        },
+      }),
+    )
+  }
+
   return (
     <section
       id="aprendizado"
@@ -609,45 +619,6 @@ export function BenefitsSection() {
                 >
                   {benefit.desktopText}
                 </p>
-
-                <div
-                  className="
-                    relative
-                    mt-auto
-                    flex
-                    items-center
-                    gap-3
-                    pt-3
-                  "
-                >
-                  <span
-                    className="
-                      h-px
-                      w-7
-                      bg-gradient-to-r
-                      from-[#d7b962]
-                      to-[#d7b962]/10
-                      transition-all
-                      duration-500
-                      group-hover:w-12
-                    "
-                  />
-
-                  <span
-                    className="
-                      text-[0.58rem]
-                      font-semibold
-                      uppercase
-                      tracking-[0.14em]
-                      text-white/45
-                      transition-colors
-                      duration-300
-                      group-hover:text-[#d7b962]/80
-                    "
-                  >
-                    Aplicação prática
-                  </span>
-                </div>
               </div>
             </article>
           ))}
@@ -755,14 +726,71 @@ export function BenefitsSection() {
               lg:mt-0
             "
           >
-            <CtaButton className="w-full sm:w-auto">
-              Garantir minha vaga
-            </CtaButton>
+            <button
+              type="button"
+              onClick={handleCtaClick}
+              className={`
+                ${poppins.className}
+                group
+                relative
+                inline-flex
+                w-full
+                items-center
+                justify-center
+                overflow-hidden
+                rounded-lg
+                bg-gradient-to-r
+                from-[#e2d19b]
+                via-[#e0cb95]
+                to-[#a6824b]
+                px-6
+                py-4
+                text-center
+                text-sm
+                font-extrabold
+                uppercase
+                tracking-normal
+                text-[#1b160d]
+                shadow-lg
+                shadow-[#a6824b]/30
+                transition-all
+                duration-300
+                hover:-translate-y-0.5
+                hover:shadow-xl
+                hover:shadow-[#a6824b]/45
+                focus-visible:outline-none
+                focus-visible:ring-4
+                focus-visible:ring-[#e2d19b]/50
+                sm:w-auto
+                sm:px-10
+                sm:text-base
+                lg:px-8
+                lg:py-3.5
+                lg:text-sm
+              `}
+            >
+              <span
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  -translate-x-full
+                  bg-gradient-to-r
+                  from-transparent
+                  via-white/45
+                  to-transparent
+                  transition-transform
+                  duration-700
+                  group-hover:translate-x-full
+                "
+              />
+
+              <span className="relative z-10">Garantir minha vaga</span>
+            </button>
           </div>
         </div>
       </div>
     </section>
   )
 }
-
-

@@ -12,12 +12,21 @@ function WhatsappIcon({ className }: { className?: string }) {
 }
 
 export function WhatsappFloat() {
+  const whatsappNumber = "555391685956"
+
+  const whatsappMessage =
+    "Olá, tenho interesse na palestra e gostaria de mais informações."
+
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    whatsappMessage,
+  )}`
+
   return (
     <a
-      href="https://wa.me/5553000000000?text=Ol%C3%A1!%20Quero%20garantir%20minha%20vaga%20na%20palestra."
+      href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Falar no WhatsApp para garantir sua vaga"
+      aria-label="Falar no WhatsApp para saber mais sobre a palestra"
       className="
         fixed bottom-5 right-5 z-50
         flex size-16 items-center justify-center

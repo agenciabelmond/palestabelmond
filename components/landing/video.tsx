@@ -9,7 +9,13 @@ const archivoBlack = Archivo_Black({
 
 export function VideoSection() {
   function handleCtaClick() {
-    window.dispatchEvent(new Event("open-registration-modal"))
+    window.dispatchEvent(
+      new CustomEvent("open-registration-modal", {
+        detail: {
+          origem: "Vídeo",
+        },
+      }),
+    )
   }
 
   return (
@@ -322,7 +328,9 @@ export function VideoSection() {
               "
             />
 
-            <span className="relative z-10 text-balance">GARANTIR VAGA</span>
+            <span className="relative z-10 text-balance">
+              GARANTIR VAGA
+            </span>
           </button>
         </div>
       </div>

@@ -247,6 +247,13 @@ export function EventSection() {
                     "
                   >
                     Quarta-feira
+                    <span
+                      aria-hidden="true"
+                      className="mx-2 text-[#9d793a]/60"
+                    >
+                      •
+                    </span>
+                    às 19h
                   </p>
                 </div>
               </div>
