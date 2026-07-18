@@ -15,26 +15,13 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Recepção que Converte — Palestra Presencial | 23/09/2026, Rio Grande/RS',
+  title: 'Belmond',
   description:
     'Pare de perder pacientes por falhas no atendimento da sua clínica. Palestra presencial em Rio Grande/RS que ensina a transformar sua recepção em uma equipe de conversão de pacientes. Vagas limitadas.',
-  generator: 'v0.app',
+  generator: 'Belmond',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/logoaba.png',
+    apple: '/logoaba.png',
   },
 }
 

@@ -17,12 +17,12 @@ export default function Page() {
       <Hero />
       <VideoSection/>
       <PainSection />
-      
+      <Google />
       <BenefitsSection />
       <EventSection />
       <AudienceSection />
       <FinalCta />
-      <Google />
+      
       <SiteFooter />
       <WhatsappFloat />
     </main>
